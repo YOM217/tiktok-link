@@ -15,6 +15,7 @@
             --yt-red: #ff0000;
             --fb-blue: #1877f2;
             --show-purple: #a855f7;
+            --business-gold: #fbbf24;
             --gold: #d4af37;
         }
 
@@ -87,6 +88,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .card:active { transform: scale(0.96); }
@@ -127,9 +129,48 @@
         .show-card { border-right: 6px solid var(--show-purple); }
         .show-card .card-icon-box { background: rgba(168, 85, 247, 0.15); color: var(--show-purple); }
 
-        /* --- אנימציות --- */
+        .biz-card { border-right: 6px solid var(--business-gold); }
+        .biz-card .card-icon-box { background: rgba(251, 191, 36, 0.15); color: var(--business-gold); }
 
-        /* 1. גלי מוזיקה ליוטיוב */
+        /* אזור הטופס המוסתר */
+        .form-container {
+            display: none;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            margin-top: -10px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: var(--business-gold);
+            color: #000;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .form-container button:active { transform: scale(0.98); }
+
+        /* --- אנימציות --- */
         .waves {
             display: flex;
             gap: 3px;
@@ -142,11 +183,8 @@
             background: var(--yt-red);
             animation: waveAnim 0.6s infinite alternate;
         }
-        @keyframes waveAnim {
-            from { height: 4px; } to { height: 15px; }
-        }
+        @keyframes waveAnim { from { height: 4px; } to { height: 15px; } }
 
-        /* 2. פעימה לפייסבוק */
         .pulse-ring {
             position: absolute;
             width: 100%;
@@ -160,7 +198,6 @@
             100% { transform: scale(1.5); opacity: 0; }
         }
 
-        /* 3. כוכבים לחפלות */
         .sparkle-icon {
             position: absolute;
             top: -5px;
@@ -174,10 +211,19 @@
             to { transform: rotate(180deg) scale(1.2); }
         }
 
+        .envelope-icon {
+            animation: float 2s infinite ease-in-out alternate;
+        }
+        @keyframes float {
+            from { transform: translateY(0); } to { transform: translateY(-4px); }
+        }
+
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     </style>
 </head>
@@ -229,7 +275,38 @@
             </div>
         </a>
 
+        <div class="card biz-card" onclick="toggleForm()">
+            <div class="card-icon-box">
+                <i class="fas fa-envelope-open-text envelope-icon"></i>
+            </div>
+            <div class="card-info">
+                <span class="card-title">פניות עסקיות ואירועים</span>
+                <span class="card-desc">רוצים שהיכל המוסיקה יגיע אליכם לעסק? לחצו כאן</span>
+            </div>
+        </div>
+
+        <div class="form-container" id="bizForm">
+            <form action="https://formspree.io/f/xknkappy" method="POST">
+                <input type="text" name="name" placeholder="שם מלא / שם העסק" required>
+                <input type="tel" name="phone" placeholder="מספר טלפון לנייד" required>
+                <input type="email" name="email" placeholder="כתובת אימייל" required>
+                <button type="submit">שלח פנייה</button>
+            </form>
+        </div>
+
     </main>
+
+    <script>
+        function toggleForm() {
+            var form = document.getElementById('bizForm');
+            if (form.style.display === 'block') {
+                form.style.display = 'none';
+            } else {
+                form.style.display = 'block';
+                form.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 
 </body>
 </html>
