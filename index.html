@@ -9,10 +9,6 @@
             --bg-color: #090d16;
             --card-bg: #1e293b;
             --text-color: #ffffff;
-            --youtube-color: #ff0000;
-            --facebook-color: #1877f2;
-            --wiki-color: #e2e8f0;
-            --shows-color: #8b5cf6;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -54,9 +50,9 @@
             text-align: center;
             text-decoration: none;
             color: var(--text-color);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -69,8 +65,34 @@
             transform: scale(0.95);
         }
         .card span {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 12px;
         }
-        /* צבעים ייעודיים לקוביות */
-        .youtube { border-color: var(--youtube-
+        .youtube { border-color: #ff0000; }
+        .facebook { border-color: #1877f2; }
+        .shows { border-color: #8b5cf6; }
+        .wikipedia { border-color: #e2e8f0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>היכל המוסיקה העיראקית</h1>
+        </div>
+        <div class="grid">
+            <a href="https://www.youtube.com/@oldiraqisongs1" target="_blank" class="card youtube">
+                <span>🔴</span>יוטיוב
+            </a>
+            <a href="#" class="card facebook">
+                <span>🔵</span>פייסבוק
+            </a>
+            <a href="#" class="card shows">
+                <span>🎬</span>מופעים
+            </a>
+            <a href="#" class="card wikipedia">
+                <span>📝</span>ויקיפדיה
+            </a>
+        </div>
+    </div>
+</body>
+</html>
