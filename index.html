@@ -157,4 +157,79 @@
         }
         @keyframes pulseAnim {
             0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* 3. כוכבים לחפלות */
+        .sparkle-icon {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 18px;
+            color: #fbbf24;
+            animation: rotateSparkle 2s infinite linear;
+        }
+        @keyframes rotateSparkle {
+            from { transform: rotate(0deg) scale(0.8); }
+            to { transform: rotate(180deg) scale(1.2); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo.png" onerror="this.src='https://via.placeholder.com/140?text=LOGO'" class="logo" alt="היכל המוסיקה העיראקית">
+        </div>
+        <h1>היכל המוסיקה העיראקית</h1>
+    </header>
+
+    <main class="container">
+        
+        <a href="https://www.youtube.com/@oldiraqisongs1" target="_blank" class="card yt-card">
+            <div class="card-icon-box">
+                <i class="fab fa-youtube"></i>
+                <div class="waves">
+                    <div class="wave" style="animation-delay: 0.1s"></div>
+                    <div class="wave" style="animation-delay: 0.3s"></div>
+                    <div class="wave" style="animation-delay: 0.2s"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <span class="card-title">ערוץ היוטיוב הרשמי</span>
+                <span class="card-desc">כל השירים מבית אבא והחפלות בלחיצת כפתור</span>
+            </div>
+        </a>
+
+        <a href="#" class="card fb-card">
+            <div class="card-icon-box">
+                <div class="pulse-ring"></div>
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="card-info">
+                <span class="card-title">קהילת הפייסבוק שלנו</span>
+                <span class="card-desc">נפגשים, מעלים זכרונות ושומרים על קשר</span>
+            </div>
+        </a>
+
+        <a href="#" class="card show-card">
+            <div class="card-icon-box">
+                <i class="fas fa-ticket-alt"></i>
+                <i class="fas fa-star sparkle-icon"></i>
+            </div>
+            <div class="card-info">
+                <span class="card-title">לוח חפלות ומופעים</span>
+                <span class="card-desc">שריינו מקום במופע המרכזי - רכישת כרטיסים כאן</span>
+            </div>
+        </a>
+
+    </main>
+
+</body>
+</html>
