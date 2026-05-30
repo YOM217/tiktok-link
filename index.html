@@ -135,17 +135,27 @@
         /* אזור הטופס המוסתר */
         .form-container {
             display: none;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
             border-radius: 24px;
-            padding: 20px;
+            padding: 24px;
             border: 1px solid rgba(251, 191, 36, 0.3);
             margin-top: -10px;
             animation: fadeIn 0.4s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .form-container input {
+        .form-container h3 {
+            font-size: 1.2rem;
+            color: var(--business-gold);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-container input, .form-container textarea {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin-bottom: 12px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -153,19 +163,32 @@
             color: #fff;
             font-size: 1rem;
             text-align: right;
+            font-family: inherit;
+        }
+
+        .form-container textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .form-container input:focus, .form-container textarea:focus {
+            outline: none;
+            border-color: var(--business-gold);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
         }
 
         .form-container button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
             border: none;
-            background: var(--business-gold);
+            background: linear-gradient(135deg, #fbbf24, #d97706);
             color: #000;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
         }
 
         .form-container button:active { transform: scale(0.98); }
@@ -280,17 +303,19 @@
                 <i class="fas fa-envelope-open-text envelope-icon"></i>
             </div>
             <div class="card-info">
-                <span class="card-title">פניות עסקיות ואירועים</span>
-                <span class="card-desc">רוצים שהיכל המוסיקה יגיע אליכם לעסק? לחצו כאן</span>
+                <span class="card-title">פרסום, סקירת עסקים ואירועים</span>
+                <span class="card-desc">רוצים חשיפה מטורפת לעסק שלכם? הזמינו אותנו לסיקור!</span>
             </div>
         </div>
 
         <div class="form-container" id="bizForm">
+            <h3>הזמנת סיקור / שיתוף פעולה עסקי</h3>
             <form action="https://formspree.io/f/xknkappy" method="POST">
                 <input type="text" name="name" placeholder="שם מלא / שם העסק" required>
                 <input type="tel" name="phone" placeholder="מספר טלפון לנייד" required>
-                <input type="email" name="email" placeholder="כתובת אימייל" required>
-                <button type="submit">שלח פנייה</button>
+                <input type="email" name="email" placeholder="כתובת אימייל ליצירת קשר" required>
+                <textarea name="message" placeholder="ספרו לנו על העסק שלכם, ואיזה סוג סיקור/פרסום אתם מעוניינים לסגור..." required></textarea>
+                <button type="submit">שלח בקשת סיקור</button>
             </form>
         </div>
 
